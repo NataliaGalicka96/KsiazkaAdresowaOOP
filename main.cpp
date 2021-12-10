@@ -1,9 +1,13 @@
 #include <iostream>
+#include "KsiazkaAdresowa.h"
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    //tworze obiekt klasy KsiazkaAdresowa
+
+    KsiazkaAdresowa ksiazkaAdresowa;
+
     return 0;
 }
