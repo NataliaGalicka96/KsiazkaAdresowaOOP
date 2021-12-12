@@ -7,8 +7,6 @@ void UzytkownikMenedzer::rejestracjaUzytkownika()
 
     uzytkownicy.push_back(uzytkownik);
 
-
-
     plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
 
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
@@ -75,6 +73,11 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow()
         cout<<uzytkownicy[i].pobierzHaslo()<<endl;
 
     }
+}
+void UzytkownikMenedzer::wczytajUzytkownikowZPliku()
+{
+    //wykonujemy metode wczytajUzytkownikowZPLiku na obiekcie plikZUzytkownikai
+       uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
 
 
