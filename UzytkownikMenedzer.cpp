@@ -15,22 +15,18 @@ void UzytkownikMenedzer::rejestracjaUzytkownika()
 
 Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
 {
-    Uzytkownik uzytkownik; // funkcja tworzy uzytkownika
+    Uzytkownik uzytkownik;
 
-   // uzytkownik.id = pobierzIdNowegoUzytkownika(); //pobiera id uzytkownika, wiec musimy te funkcje tez zaimplementowac
     uzytkownik.ustawId(pobierzIdNowegoUzytkownika());
-    //zmienna pomocnicza
+
     string login, haslo;
     do
     {
         cout <<  "Podaj login: ";
-       // cin >>uzytkownik.login;
-       //tworzê zmienn¹ pomocnicz¹
        cin>>login;
        uzytkownik.ustawLogin(login);
 
-    } //while (czyIstniejeLogin(uzytkownik.login) == true);
-    while(czyIstniejeLogin(uzytkownik.pobierzLogin())==true);
+    } while(czyIstniejeLogin(uzytkownik.pobierzLogin())==true);
 
     cout << "Podaj haslo: ";
     cin>>haslo;
