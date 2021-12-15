@@ -7,6 +7,7 @@
 #include <fstream>
 #include <sstream>
 
+
 #include "Uzytkownik.h"
 #include "PlikZUzytkownikami.h"
 
@@ -23,13 +24,22 @@ class UzytkownikMenedzer
     bool czyIstniejeLogin(string login);
 
 
-
 public:
-    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami):plikZUzytkownikami(nazwaPlikuZUzytkownikami){};
+    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami):plikZUzytkownikami(nazwaPlikuZUzytkownikami){
+    idZalogowanegoUzytkownika=0;
+    //uzytkownicy=plikZUzytkownikami.wczytajUzytkownikowZPliku();
+    };
 
     void rejestracjaUzytkownika();
+    int logowanieUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wczytajUzytkownikowZPliku();
+    void zmianaHaslaZalogowanegoUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika();
+    int wylogowanieUzytkownika();
+    char wybierzOpcjeZMenuGlownego();
+    char wybierzOpcjeZMenuUzytkownika();
+    bool sprawdzCzyUzytkownikJestZalogowany();
 
 
 
