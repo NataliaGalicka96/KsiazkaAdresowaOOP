@@ -5,12 +5,15 @@ using namespace std;
 
 int main()
 {
-    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
-    char wybor;
+    int idZalogowanegoUzytkownika = 0;
+    int idOstatniegoAdresata = 0;
 
+    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt");
+    char wybor;
     while (true)
     {
-        if (ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika() == 0)
+
+        if (idZalogowanegoUzytkownika == 0)
         {
             cin.sync();
             wybor=ksiazkaAdresowa.wybierzOpcjeZMenuGlownego();
@@ -21,7 +24,7 @@ int main()
                 ksiazkaAdresowa.rejestracjaUzytkownika();
                 break;
             case '2':
-                ksiazkaAdresowa.logowanieUzytkownika();
+                idZalogowanegoUzytkownika=ksiazkaAdresowa.logowanieUzytkownika();
                 break;
             case '9':
                 exit(0);
@@ -35,33 +38,35 @@ int main()
         else
         {
             cin.sync();
+
             wybor=ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
 
             switch (wybor)
             {
             case '1':
-               // ksiazkaAdresowa.dodajAdresata();
+                idOstatniegoAdresata = ksiazkaAdresowa.dodajAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
                 break;
             case '2':
-               // ksiazkaAdresowa.wyszukajAdresataPoImieniu();
+                //ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
                 break;
             case '3':
-               // ksiazkaAdresowa.wyszukajAdresataPoNazwisku();
+                //ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
                 break;
             case '4':
-                //ksiazkaAdresowa.listaAdresatow();
+
+                ksiazkaAdresowa.wyswietlWszystkichAdresatow(idZalogowanegoUzytkownika);
                 break;
             case '5':
-               // ksiazkaAdresowa.usuniecieAdresata();
+                //ksiazkaAdresowa.usunAdresata();
                 break;
             case '6':
-               // ksiazkaAdresowa.edycjaAdresata();
+                //ksiazkaAdresowa.edytujAdresata();
                 break;
             case '7':
-                ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+                ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
                 break;
             case '8':
-                ksiazkaAdresowa.wylogowanieUzytkownika();
+                idZalogowanegoUzytkownika=ksiazkaAdresowa.wylogowanieUzytkownika();
                 break;
             }
         }

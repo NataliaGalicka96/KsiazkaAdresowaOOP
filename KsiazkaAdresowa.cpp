@@ -4,37 +4,47 @@ void KsiazkaAdresowa::rejestracjaUzytkownika()
 {
     uzytkownikMenedzer.rejestracjaUzytkownika();
 }
-void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
-{
-    uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
-}
 int KsiazkaAdresowa::logowanieUzytkownika()
 {
     uzytkownikMenedzer.logowanieUzytkownika();
-}
-void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
-{
-    uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
-}
-int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika()
-{
-    uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
 }
 int KsiazkaAdresowa::wylogowanieUzytkownika()
 {
     uzytkownikMenedzer.wylogowanieUzytkownika();
 }
+void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika)
+{
+    uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
+}
+void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
+{
+    uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
+}
+int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika()
+{
+    return uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
+}
+
 char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego()
 {
     uzytkownikMenedzer.wybierzOpcjeZMenuGlownego();
 }
-
 char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika()
 {
     uzytkownikMenedzer.wybierzOpcjeZMenuUzytkownika();
 }
-bool KsiazkaAdresowa::sprawdzCzyUzytkownikJestZalogowany()
+
+vector <Adresat> KsiazkaAdresowa::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika)
 {
-    uzytkownikMenedzer.sprawdzCzyUzytkownikJestZalogowany();
+    adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
 }
 
+int KsiazkaAdresowa::dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
+{
+    adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
+}
+
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow(int idZalogowanegoUzytkownika)
+{
+    adresatMenedzer.wyswietlWszystkichAdresatow(idZalogowanegoUzytkownika);
+}
