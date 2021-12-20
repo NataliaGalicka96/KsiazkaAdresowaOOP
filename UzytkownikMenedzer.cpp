@@ -80,20 +80,22 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow()
 
     }
 }
-void UzytkownikMenedzer::wczytajUzytkownikowZPliku()
-{
-    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
-}
+
 
 int UzytkownikMenedzer::logowanieUzytkownika()
 {
     Uzytkownik uzytkownik;
     string login = "", haslo = "";
 
+
+    system("cls");
+    cout<<">>> LOGOWANIE UZYTKOWNIKA <<<"<<endl;
+
     cout << endl << "Podaj login: ";
-    login = MetodyPomocnicze::wczytajLinie();
+    cin>>login;
 
     vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
+
     while (itr != uzytkownicy.end())
     {
         if (itr -> pobierzLogin() == login)
@@ -101,17 +103,21 @@ int UzytkownikMenedzer::logowanieUzytkownika()
             for (int iloscProb = 3; iloscProb > 0; iloscProb--)
             {
                 cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
-                haslo = MetodyPomocnicze::wczytajLinie();
+                cin>>haslo;
 
                 if (itr -> pobierzHaslo() == haslo)
                 {
+                    idZalogowanegoUzytkownika = itr -> pobierzId();
                     cout << endl << "Zalogowales sie." << endl << endl;
-                    system("pause");
-                    return itr -> pobierzId();
+                    Sleep(2000);
+                   // return 0;
+                   return idZalogowanegoUzytkownika;
+
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
-            system("pause");
+
+            Sleep(3000);
             return 0;
         }
         itr++;
@@ -121,24 +127,32 @@ int UzytkownikMenedzer::logowanieUzytkownika()
     return 0;
 }
 
-void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika)
+void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
 {
+
+    system("cls");
     string noweHaslo = "";
     cout << "Podaj nowe haslo: ";
-    noweHaslo = MetodyPomocnicze::wczytajLinie();
+    cin>> noweHaslo;
 
     for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
     {
+        //if (itr -> pobierzId() == pobierzIdZalogowanegoUzytkownika())
         if (itr -> pobierzId() == idZalogowanegoUzytkownika)
         {
             itr -> ustawHaslo(noweHaslo);
             cout << "Haslo zostalo zmienione." << endl << endl;
             system("pause");
+
         }
     }
+    //plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+    zapiszWszystkichUzytkownikowDoPliku();
+}
+void UzytkownikMenedzer::zapiszWszystkichUzytkownikowDoPliku()
+{
     plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
-
 char UzytkownikMenedzer::wybierzOpcjeZMenuGlownego()
 {
     char wybor;
@@ -183,13 +197,23 @@ int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika()
 {
     return idZalogowanegoUzytkownika;
 }
-
-
-int UzytkownikMenedzer::wylogowanieUzytkownika()
+void UzytkownikMenedzer::wylogowanieUzytkownika()
 {
-    int idZalogowanegoUzytkownika;
-    return idZalogowanegoUzytkownika=0;
+    idZalogowanegoUzytkownika=0;
 }
+
+bool UzytkownikMenedzer::sprawdzCzyUzytkownikJestZalogowany()
+{
+    if (idZalogowanegoUzytkownika > 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 
 
 

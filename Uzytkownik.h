@@ -11,6 +11,12 @@ class Uzytkownik
     string login, haslo;
 
 public:
+    Uzytkownik (int id=0, string login="", string haslo="")
+    {
+        this -> id = id;
+        this -> login = login;
+        this -> haslo = haslo;
+    }
 
     void ustawId(int noweId);
     void ustawLogin(string nowyLogin);
