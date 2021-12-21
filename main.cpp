@@ -44,10 +44,10 @@ int main()
                 ksiazkaAdresowa.dodajAdresata();
                 break;
             case '2':
-                //ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
+                ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
                 break;
             case '3':
-                //ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
+                ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
                 break;
             case '4':
                 ksiazkaAdresowa.wyswietlWszystkichAdresatow();
