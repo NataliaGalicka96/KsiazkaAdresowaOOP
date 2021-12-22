@@ -41,7 +41,7 @@ public:
     char wybierzOpcjeZMenuUzytkownika();
     bool sprawdzCzyUzytkownikJestZalogowany();
 
-    int dodajAdresata();
+    void dodajAdresata();
     void wyswietlWszystkichAdresatow();
     Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(Adresat adresat);

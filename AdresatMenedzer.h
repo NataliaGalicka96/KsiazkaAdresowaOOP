@@ -21,6 +21,11 @@ class AdresatMenedzer
     PlikZAdresatami plikZAdresatami;
 
 
+
+    int podajIdWybranegoAdresata();
+    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
+    char wybierzOpcjeZMenuEdycja();
+
 public:
 
 
@@ -30,22 +35,14 @@ public:
     adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
     };
 
-
+    Adresat podajDaneNowegoAdresata();
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
-    Adresat podajDaneNowegoAdresata();
-    void wyswietlDaneAdresata(Adresat adresat);
-    void wyszukajAdresatowPoImieniu();
-    void wyszukajAdresatowPoNazwisku();
-    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
-
     void usunAdresata();
     void edytujAdresata();
-    int podajIdWybranegoAdresata();
-    char wybierzOpcjeZMenuEdycja();
-
-
-
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
+    void wyswietlDaneAdresata(Adresat adresat);
 
 
 

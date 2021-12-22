@@ -235,6 +235,7 @@ void AdresatMenedzer::edytujAdresata()
                     itr -> ustawImie(MetodyPomocnicze::wczytajLinie()) ;
                     itr -> ustawImie(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(itr -> pobierzImie()));
                     plikZAdresatami.zaktualizujDaneWybranegoAdresata(*itr);
+                    system("cls");
                     continue;
                 }
                 if(wybor=='2')
@@ -243,6 +244,7 @@ void AdresatMenedzer::edytujAdresata()
                     itr -> ustawNazwisko(MetodyPomocnicze::wczytajLinie());
                     itr -> ustawNazwisko(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(itr -> pobierzNazwisko()));
                     plikZAdresatami.zaktualizujDaneWybranegoAdresata(*itr);
+                    system("cls");
                     continue;
                 }
 
@@ -251,6 +253,7 @@ void AdresatMenedzer::edytujAdresata()
                     cout << "Podaj nowy numer telefonu: ";
                     itr -> ustawNumerTelefonu(MetodyPomocnicze::wczytajLinie());
                     plikZAdresatami.zaktualizujDaneWybranegoAdresata(*itr);
+                    system("cls");
                     continue;
                 }
 
@@ -259,6 +262,7 @@ void AdresatMenedzer::edytujAdresata()
                     cout << "Podaj nowy email: ";
                     itr -> ustawEmail(MetodyPomocnicze::wczytajLinie());
                     plikZAdresatami.zaktualizujDaneWybranegoAdresata(*itr);
+                    system("cls");
                     continue;
                 }
 
@@ -267,6 +271,7 @@ void AdresatMenedzer::edytujAdresata()
                     cout << "Podaj nowy adres zamieszkania: ";
                     itr -> ustawAdres(MetodyPomocnicze::wczytajLinie());
                     plikZAdresatami.zaktualizujDaneWybranegoAdresata(*itr);
+                    system("cls");
                     continue;
                 }
 

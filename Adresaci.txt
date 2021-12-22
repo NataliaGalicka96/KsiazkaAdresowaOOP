@@ -2,9 +2,14 @@
 2|1|Aleksander|Galicki|0056 852||Iza|
 3|1|Mikolaj|||||
 4|1|Mariusz|Galicki||||
-5|2|Olek|||||
-6|2|Miki|||||
+5|2|Aleksander|Galicki||||
+6|2|Mikolaj|Galicki||||
 7|2|Natalia|||||
 8|2|Zuzia|||||
 9|2|Justyna|||||
 10|1|Justyna|Burc|459345230|justynaburc|Glebocka|
+11|1|Olek|||||
+12|2|Natalia|Galicka||||
+13|3|Natalka|Mama||||
+14|3|Mariusz|Galicki|brak|brak|brak|
+15|3|Olo|||||
