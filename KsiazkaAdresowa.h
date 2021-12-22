@@ -47,5 +47,7 @@ public:
     void wyswietlDaneAdresata(Adresat adresat);
     void wyszukajAdresatowPoImieniu();
     void wyszukajAdresatowPoNazwisku();
+    void usunAdresata();
+    void edytujAdresata();
 };
 #endif // KSIAZKAADRESOWA_H

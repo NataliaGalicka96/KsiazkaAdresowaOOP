@@ -39,6 +39,15 @@ public:
     void wyszukajAdresatowPoNazwisku();
     void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
 
+    void usunAdresata();
+    void edytujAdresata();
+    int podajIdWybranegoAdresata();
+    char wybierzOpcjeZMenuEdycja();
+
+
+
+
+
 
 };
 
