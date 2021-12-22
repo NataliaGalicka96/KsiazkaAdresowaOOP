@@ -40,7 +40,7 @@ bool KsiazkaAdresowa::sprawdzCzyUzytkownikJestZalogowany()
 {
     uzytkownikMenedzer.sprawdzCzyUzytkownikJestZalogowany();
 }
-int KsiazkaAdresowa::dodajAdresata()
+void KsiazkaAdresowa::dodajAdresata()
 {
 
     adresatMenedzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
