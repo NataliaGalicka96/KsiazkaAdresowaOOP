@@ -141,7 +141,7 @@ void AdresatMenedzer::wyszukajAdresatowPoNazwisku()
                 iloscAdresatow++;
             }
         }
-         wyswietlIloscWyszukanychAdresatow(iloscAdresatow);
+        wyswietlIloscWyszukanychAdresatow(iloscAdresatow);
     }
     else
     {
@@ -150,3 +150,159 @@ void AdresatMenedzer::wyszukajAdresatowPoNazwisku()
     cout << endl;
     system("pause");
 }
+
+void AdresatMenedzer::usunAdresata()
+{
+    Adresat adresat;
+    int idUsuwanegoAdresata = 0;
+    int numerLiniiUsuwanegoAdresata = 0;
+
+    system("cls");
+    cout << ">>> USUWANIE WYBRANEGO ADRESATA <<<" << endl << endl;
+    idUsuwanegoAdresata = podajIdWybranegoAdresata();
+
+    char znak;
+    bool czyIstniejeAdresat = false;
+
+    for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++)
+    {
+        if (itr -> pobierzId() == idUsuwanegoAdresata)
+        {
+            czyIstniejeAdresat = true;
+            cout<<"Adresat, ktory zostanie usuniety: " <<endl;
+            wyswietlDaneAdresata(*itr);
+            cout << endl << "Potwierdz naciskajac klawisz 't': ";
+            znak = MetodyPomocnicze::wczytajZnak();
+            if (znak == 't')
+            {
+                plikZAdresatami.usunWybranegoAdresata(idUsuwanegoAdresata);
+                adresaci.erase(itr);
+                cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
+                system("pause");
+                break;
+            }
+            else
+            {
+                cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
+                system("pause");
+                break;
+            }
+        }
+    }
+    if (czyIstniejeAdresat == false)
+    {
+        cout << endl << "Nie ma takiego adresata w ksiazce adresowej" << endl << endl;
+        system("pause");
+    }
+
+}
+int AdresatMenedzer::podajIdWybranegoAdresata()
+{
+    int idWybranegoAdresata = 0;
+    cout << "Podaj numer ID Adresata: ";
+    idWybranegoAdresata  = MetodyPomocnicze::wczytajLiczbeCalkowita();
+    return idWybranegoAdresata;
+}
+
+void AdresatMenedzer::edytujAdresata()
+{
+    system("cls");
+    Adresat adresat;
+    int idEdytowanegoAdresata=0;
+    string liniaZDanymiAdresata = "";
+
+    cout << ">>> EDYCJA WYBRANEGO ADRESATA <<<" << endl << endl;
+    idEdytowanegoAdresata = podajIdWybranegoAdresata();
+
+    char wybor;
+    bool czyIstniejeAdresat = false;
+
+    for(vector <Adresat>::iterator itr=adresaci.begin(); itr!=adresaci.end(); itr++)
+    {
+        if (itr->pobierzId() == idEdytowanegoAdresata)
+        {
+            czyIstniejeAdresat = true;
+            while(true)
+            {
+
+                cout<<"Adresat ktorego dane beda edytowane: " <<endl;
+                wyswietlDaneAdresata(*itr);
+                wybor = wybierzOpcjeZMenuEdycja();
+
+                if(wybor=='1')
+                {
+                    cout << "Podaj nowe imie: ";
+                    itr -> ustawImie(MetodyPomocnicze::wczytajLinie()) ;
+                    itr -> ustawImie(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(itr -> pobierzImie()));
+                    plikZAdresatami.zaktualizujDaneWybranegoAdresata(*itr);
+                    continue;
+                }
+                if(wybor=='2')
+                {
+                    cout << "Podaj nowe nazwisko: ";
+                    itr -> ustawNazwisko(MetodyPomocnicze::wczytajLinie());
+                    itr -> ustawNazwisko(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(itr -> pobierzNazwisko()));
+                    plikZAdresatami.zaktualizujDaneWybranegoAdresata(*itr);
+                    continue;
+                }
+
+                if(wybor=='3')
+                {
+                    cout << "Podaj nowy numer telefonu: ";
+                    itr -> ustawNumerTelefonu(MetodyPomocnicze::wczytajLinie());
+                    plikZAdresatami.zaktualizujDaneWybranegoAdresata(*itr);
+                    continue;
+                }
+
+                if(wybor=='4')
+                {
+                    cout << "Podaj nowy email: ";
+                    itr -> ustawEmail(MetodyPomocnicze::wczytajLinie());
+                    plikZAdresatami.zaktualizujDaneWybranegoAdresata(*itr);
+                    continue;
+                }
+
+                if(wybor=='5')
+                {
+                    cout << "Podaj nowy adres zamieszkania: ";
+                    itr -> ustawAdres(MetodyPomocnicze::wczytajLinie());
+                    plikZAdresatami.zaktualizujDaneWybranegoAdresata(*itr);
+                    continue;
+                }
+
+                if(wybor=='6')
+                {
+                    cout << endl << "Powrot do menu uzytkownika" << endl << endl;
+                    break;
+                }
+
+            }
+            break;
+        }
+    }
+    if (czyIstniejeAdresat == false)
+    {
+        cout << endl << "Nie ma takiego adresata." << endl << endl;
+    }
+    system("pause");
+}
+char AdresatMenedzer::wybierzOpcjeZMenuEdycja()
+{
+    char wybor;
+
+    cout << endl << "   >>> MENU  EDYCJA <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << "Ktore dane zaktualizowac: " << endl;
+    cout << "1 - Imie" << endl;
+    cout << "2 - Nazwisko" << endl;
+    cout << "3 - Numer telefonu" << endl;
+    cout << "4 - Email" << endl;
+    cout << "5 - Adres" << endl;
+    cout << "6 - Powrot " << endl;
+    cout << endl << "Twoj wybor: ";
+    wybor = MetodyPomocnicze::wczytajZnak();
+
+    return wybor;
+}
+
+

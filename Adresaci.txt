@@ -1,21 +1,10 @@
-1|1|Mariusz|Galicki|-|-|-|
-2|1|Natalia|Galicka|-|-|-|
-3|2|Aleksander|-|-|-|-|
-4|2|Mikolaj|-|-|-|-|
-5|1|Ewa|Chychlowska|-|-|-|
-6|2|Alek|-|-|-|-|
-7|1|Mario|-|-|-|-|
-8|1|Natalia|Galicka|-|-|-|
-9|2|Nowy|-|-|-|-|
-10|4|Nowy|-|-|-|-|
-11|1|Nowy11|-|-|-|-|
-12|2|Nowy12|-|-|-|-|
-13|3|Nowy|-|-|-|-|
-14|1|Olo|-|-|-||
-15|1|Olo15|-|-|-|-|
-16|6|16|-|-|-||
-17|1|Olo|-|-|-|-|
-18|2|O|-|-|-|-|
-19|1|Aleksander|Nowy|-|-|-|
-20|2|Natalia|Galicka|-|-|-|
-21|1|Nowynatalia|-|-|-|-|
+1|1|Natalia|Galicka|456 456 565|nataliagalicka@gmail.com|IZabelin|
+2|1|Aleksander|Galicki|0056 852||Iza|
+3|1|Mikolaj|||||
+4|1|Mariusz|Galicki||||
+5|2|Olek|||||
+6|2|Miki|||||
+7|2|Natalia|||||
+8|2|Zuzia|||||
+9|2|Justyna|||||
+10|1|Justyna|Burc|459345230|justynaburc|Glebocka|
